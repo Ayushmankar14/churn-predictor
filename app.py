@@ -22,14 +22,6 @@ background_image = get_base64_bg("this image.jpg")
 st.markdown(
     f"""
     <style>
-    /* Remove Streamlit default padding/margin */
-    .block-container {{
-        padding-top: 0rem !important;
-    }}
-    [data-testid="stAppViewContainer"] > .main {{
-        padding-top: 0rem !important;
-    }}
-
     /* Background Image */
     [data-testid="stAppViewContainer"] {{
         background-image: url("{background_image}");
@@ -47,7 +39,8 @@ st.markdown(
         background: linear-gradient(to right, #001f3f, #0074D9);
         padding: 1rem 2rem;
         z-index: 9999;
-        color: white;
+        color: red; /* 🔴 Text in red */
+        text-shadow: 2px 2px 4px black; /* Glow for visibility */
         font-size: 24px;
         font-weight: bold;
         text-align: center;
@@ -62,8 +55,8 @@ st.markdown(
     }}
 
     /* Main Content Styling */
-    .main-container {{
-        margin-top: 80px !important; /* Push content below header */
+    .main {{
+        margin-top: 100px !important;
         background-color: rgba(255, 255, 255, 0.88);
         padding: 3rem;
         border-radius: 15px;
@@ -95,7 +88,7 @@ st.markdown(
 st.markdown("<div class='custom-header'>🚀 Customer Churn Prediction App</div>", unsafe_allow_html=True)
 
 # ✅ Start Main Container
-st.markdown("<div class='main-container'>", unsafe_allow_html=True)
+st.markdown("<div class='main'>", unsafe_allow_html=True)
 
 st.markdown("#### 📥 Enter Customer Features")
 
