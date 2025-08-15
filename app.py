@@ -7,8 +7,7 @@ from brain import load_artifacts, predict_churn
 # ✅ Load model and features
 model, scaler, feature_names = load_artifacts()
 
-# ✅ Set page config
-st.set_page_config(page_title="Customer Churn Predictor", layout="centered")
+
 
 # ✅ Convert background image to base64
 def get_base64_bg(image_file):
@@ -135,3 +134,4 @@ st.markdown(
 
 # ✅ End Main Container
 st.markdown("</div>", unsafe_allow_html=True)
+
