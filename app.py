@@ -7,7 +7,8 @@ from brain import load_artifacts, predict_churn
 # ✅ Load model and features
 model, scaler, feature_names = load_artifacts()
 
-
+# ✅ Set page config
+st.set_page_config(page_title="Customer Churn Predictor", layout="centered")
 
 # ✅ Convert background image to base64
 def get_base64_bg(image_file):
@@ -21,6 +22,11 @@ background_image = get_base64_bg("this image.jpg")
 st.markdown(
     f"""
     <style>
+    /* Remove default Streamlit padding/margin at top */
+    .block-container {{
+        padding-top: 0rem !important;
+    }}
+
     /* Background Image */
     [data-testid="stAppViewContainer"] {{
         background-image: url("{background_image}");
@@ -31,15 +37,15 @@ st.markdown(
 
     /* Top Glowing Header */
     .custom-header {{
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         background: linear-gradient(to right, #001f3f, #0074D9);
         padding: 1rem 2rem;
         z-index: 9999;
-        color: red; /* 🔴 Text in red */
-        text-shadow: 2px 2px 4px black; /* Glow for visibility */
+        color: red; /* 🔴 Red text */
+        text-shadow: 2px 2px 4px black;
         font-size: 24px;
         font-weight: bold;
         text-align: center;
@@ -55,7 +61,7 @@ st.markdown(
 
     /* Main Content Styling */
     .main {{
-        margin-top: 100px !important;
+        margin-top: 80px !important;
         background-color: rgba(255, 255, 255, 0.88);
         padding: 3rem;
         border-radius: 15px;
@@ -83,7 +89,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# ✅ Top Header
+# ✅ Top Header (will now show)
 st.markdown("<div class='custom-header'>🚀 Customer Churn Prediction App</div>", unsafe_allow_html=True)
 
 # ✅ Start Main Container
@@ -134,4 +140,3 @@ st.markdown(
 
 # ✅ End Main Container
 st.markdown("</div>", unsafe_allow_html=True)
-
