@@ -22,6 +22,11 @@ background_image = get_base64_bg("this image.jpg")
 st.markdown(
     f"""
     <style>
+    /* Remove Streamlit default white space at top */
+    header[data-testid="stHeader"] {{
+        display: none;
+    }}
+
     /* Background Image */
     [data-testid="stAppViewContainer"] {{
         background-image: url("{background_image}");
@@ -32,20 +37,17 @@ st.markdown(
 
     /* Top Glowing Header */
     .custom-header {{
-        position: absolute;
-        top: 20px; /* moved down from the very top */
-        left: 0;
+        margin-top: 20px;
         width: 100%;
         background: linear-gradient(to right, #001f3f, #0074D9);
         padding: 1rem 2rem;
-        z-index: 9999;
-        color: red; /* header text color */
-        text-shadow: 2px 2px 4px black; /* makes red text stand out */
+        color: red;
         font-size: 24px;
         font-weight: bold;
         text-align: center;
         box-shadow: 0 2px 10px rgba(0,0,0,0.4);
         animation: pulseGlow 4s infinite;
+        border-radius: 8px;
     }}
 
     @keyframes pulseGlow {{
@@ -56,7 +58,7 @@ st.markdown(
 
     /* Main Content Styling */
     .main {{
-        margin-top: 120px !important; /* increased so content clears the header */
+        margin-top: 20px !important;
         background-color: rgba(255, 255, 255, 0.88);
         padding: 3rem;
         border-radius: 15px;
