@@ -22,11 +22,6 @@ background_image = get_base64_bg("this image.jpg")
 st.markdown(
     f"""
     <style>
-    /* Remove Streamlit default white space at top */
-    header[data-testid="stHeader"] {{
-        display: none;
-    }}
-
     /* Background Image */
     [data-testid="stAppViewContainer"] {{
         background-image: url("{background_image}");
@@ -37,17 +32,20 @@ st.markdown(
 
     /* Top Glowing Header */
     .custom-header {{
-        margin-top: 20px;
+        position: absolute;
+        top: 20px; /* moved down from the very top */
+        left: 0;
         width: 100%;
         background: linear-gradient(to right, #001f3f, #0074D9);
         padding: 1rem 2rem;
-        color: red;
+        z-index: 9999;
+        color: red; /* header text color */
+        text-shadow: 2px 2px 4px black; /* makes red text stand out */
         font-size: 24px;
         font-weight: bold;
         text-align: center;
         box-shadow: 0 2px 10px rgba(0,0,0,0.4);
         animation: pulseGlow 4s infinite;
-        border-radius: 8px;
     }}
 
     @keyframes pulseGlow {{
@@ -58,7 +56,7 @@ st.markdown(
 
     /* Main Content Styling */
     .main {{
-        margin-top: 20px !important;
+        margin-top: 120px !important; /* increased so content clears the header */
         background-color: rgba(255, 255, 255, 0.88);
         padding: 3rem;
         border-radius: 15px;
@@ -108,7 +106,7 @@ if submitted:
     label, prob = predict_churn(user_input, model, scaler, feature_names)
 
     st.markdown("### 🎯 Prediction Result")
-    st.success(f"✅ Prediction: **{'Churn' if label == 1 else 'No Churn'}**")
+    st.success(f"✅ Prediction: *{'Churn' if label == 1 else 'No Churn'}*")
     st.metric(label="📊 Churn Probability", value=f"{prob*100:.2f} %")
 
     # Pie Chart
