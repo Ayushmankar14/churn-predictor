@@ -22,6 +22,11 @@ background_image = get_base64_bg("this image.jpg")
 st.markdown(
     f"""
     <style>
+    /* Remove Streamlit default top padding */
+    .block-container {{
+        padding-top: 0rem !important;
+    }}
+
     /* Background Image */
     [data-testid="stAppViewContainer"] {{
         background-image: url("{background_image}");
@@ -30,7 +35,7 @@ st.markdown(
         background-attachment: fixed;
     }}
 
-    /* Top Glowing Header */
+    /* Top Glowing Fixed Header */
     .custom-header {{
         position: fixed;
         top: 0;
@@ -39,7 +44,7 @@ st.markdown(
         background: linear-gradient(to right, #001f3f, #0074D9);
         padding: 1rem 2rem;
         z-index: 9999;
-        color: white !important;
+        color: white;
         font-size: 24px;
         font-weight: bold;
         text-align: center;
@@ -55,8 +60,8 @@ st.markdown(
 
     /* Main Content Styling */
     .main {{
-        margin-top: 130px !important; /* Space so header doesn't overlap */
-        background-color: rgba(255, 255, 255, 0.9);
+        margin-top: 90px !important; /* Push content below fixed header */
+        background-color: rgba(255, 255, 255, 0.88);
         padding: 3rem;
         border-radius: 15px;
         max-width: 900px;
