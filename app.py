@@ -39,7 +39,7 @@ st.markdown(
         background: linear-gradient(to right, #001f3f, #0074D9);
         padding: 1rem 2rem;
         z-index: 9999;
-        color: white;
+        color: white !important;
         font-size: 24px;
         font-weight: bold;
         text-align: center;
@@ -55,8 +55,8 @@ st.markdown(
 
     /* Main Content Styling */
     .main {{
-        margin-top: 100px !important;
-        background-color: rgba(255, 255, 255, 0.88);
+        margin-top: 130px !important; /* Space so header doesn't overlap */
+        background-color: rgba(255, 255, 255, 0.9);
         padding: 3rem;
         border-radius: 15px;
         max-width: 900px;
