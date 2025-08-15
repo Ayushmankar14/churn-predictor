@@ -22,11 +22,6 @@ background_image = get_base64_bg("this image.jpg")
 st.markdown(
     f"""
     <style>
-    /* Remove default Streamlit padding/margin at top */
-    .block-container {{
-        padding-top: 0rem !important;
-    }}
-
     /* Background Image */
     [data-testid="stAppViewContainer"] {{
         background-image: url("{background_image}");
@@ -38,14 +33,14 @@ st.markdown(
     /* Top Glowing Header */
     .custom-header {{
         position: absolute;
-        top: 0;
+        top: 20px; /* moved down from the very top */
         left: 0;
         width: 100%;
         background: linear-gradient(to right, #001f3f, #0074D9);
         padding: 1rem 2rem;
         z-index: 9999;
-        color: red; /* 🔴 Red text */
-        text-shadow: 2px 2px 4px black;
+        color: red; /* header text color */
+        text-shadow: 2px 2px 4px black; /* makes red text stand out */
         font-size: 24px;
         font-weight: bold;
         text-align: center;
@@ -61,7 +56,7 @@ st.markdown(
 
     /* Main Content Styling */
     .main {{
-        margin-top: 80px !important;
+        margin-top: 120px !important; /* increased so content clears the header */
         background-color: rgba(255, 255, 255, 0.88);
         padding: 3rem;
         border-radius: 15px;
@@ -89,7 +84,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# ✅ Top Header (will now show)
+# ✅ Top Header
 st.markdown("<div class='custom-header'>🚀 Customer Churn Prediction App</div>", unsafe_allow_html=True)
 
 # ✅ Start Main Container
